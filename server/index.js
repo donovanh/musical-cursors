@@ -4,16 +4,6 @@ const expressWs = require("express-ws")(app);
 const { authorize } = require("@liveblocks/node");
 const cors = require("cors");
 
-/*
- * Description of the app here
- * TODO:
- * Add in cursor support
- * Report winners to client
- * Split into lib files
- * Unit tests
- * Svelte tests
- */
-
 app.use(express.json());
 app.use(cors());
 
@@ -23,7 +13,6 @@ app.post("/auth", (req, res) => {
     secret: process.env.LIVEBLOCKS_SECRET_KEY,
   })
     .then((authResponse) => {
-      console.log("Received: ", authResponse);
       res.send(authResponse.body);
     })
     .catch((err) => {
